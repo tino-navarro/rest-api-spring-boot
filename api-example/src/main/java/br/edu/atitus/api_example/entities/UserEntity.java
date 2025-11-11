@@ -2,16 +2,33 @@ package br.edu.atitus.api_example.entities;
 
 import java.util.UUID;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
 public class UserEntity {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.UUID)
 	private UUID id;
 	
+	@Column(length = 100, nullable = false)
 	private String name;
 	
+	@Column(length = 100, nullable = false)
 	private String email;
 	
+	@Column(length = 100, nullable = false)
 	private String password;
 	
+	@Enumerated(EnumType.ORDINAL)
 	private TypeUser type;
 
 	public UUID getId() {
