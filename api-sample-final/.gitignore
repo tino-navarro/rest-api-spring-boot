@@ -1,0 +1,32 @@
+# Arquivos de compilação e empacotamento
+/target/
+/bin/
+
+# Logs
+*.log
+*.log.*
+/logs/
+
+# Dependências do Maven
+.m2/
+
+# Arquivos de IDE (Eclipse)
+.classpath
+.project
+.settings/
+*.launch
+*.sublime-workspace
+
+# Arquivos de IDE (IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Spring Boot Devtools
+# O Devtools gera um arquivo de cache que deve ser ignorado
+.spring-boot-devtools.properties
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
