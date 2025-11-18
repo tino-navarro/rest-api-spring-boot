@@ -17,7 +17,7 @@ public class JWTUtils {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
-    public static String generateToken(String email) {
+    public static String generateToken(UserEntity user) {
         return Jwts.builder()
                 .subject(email) // Define o "sub" com o email do usuário
                 .claim("nome",user.getName())
