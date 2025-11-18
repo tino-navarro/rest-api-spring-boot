@@ -2,6 +2,7 @@ package br.edu.atitus.api_sample.components;
 import java.util.Date;
 
 import javax.crypto.SecretKey;
+import br.edu.atitus.api_sample.entities.UserEntity;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -19,6 +20,7 @@ public class JWTUtils {
     public static String generateToken(String email) {
         return Jwts.builder()
                 .subject(email) // Define o "sub" com o email do usuário
+                .claim("nome",user.getName())
                 .issuedAt(new Date()) // Data de emissão
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME)) // Expiração
                 .signWith(getSigningKey()) // Assina com a chave secreta
