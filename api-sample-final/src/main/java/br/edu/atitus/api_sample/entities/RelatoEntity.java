@@ -37,6 +37,14 @@ public class RelatoEntity {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private RelatoType type;
+	
+	public RelatoType getType() {
+		return type;
+	}
+
+	public void setType(RelatoType type) {
+		this.type = type;
+	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_user")
