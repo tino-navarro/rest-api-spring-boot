@@ -46,8 +46,12 @@ public class AuthController {
 			
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
+
+		UserEntity user = (UserEntity) service.loadUserByUsername(signin.email());
+		String token = JWTUtils.generateToken(user);
+		return ResponseEntity.ok(token);
 		
-		return ResponseEntity.ok(JWTUtils.generateToken(signin.email()));
+		
 	}
 	
 
