@@ -2,6 +2,8 @@ package br.edu.atitus.api_sample.entities;
 
 import java.util.UUID;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -31,7 +33,11 @@ public class RelatoEntity {
 	
 	@Column(length = 250, nullable = false)
 	private String description;
-	
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private RelatoType type;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_user")
 	private UserEntity user;
